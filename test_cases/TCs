@@ -1,0 +1,24 @@
+TC-1: Switching filters without re-entering the search term
+  Given I am on the Bing homepage
+  When I search for "semrush"
+  And I filter results by "Everything"
+  Then I should see search results related to the word "semrush"
+  When I switch to the "Video" category
+  Then I should see video results related to "semrush" without needing to re-enter "semrush"
+  And I should see that the search field contains the word "semrush"
+
+TC-2: Video results show metadata
+  Given I am on the Bing homepage
+  When I search for "semrush"
+  And I filter results by "Video"
+  Then I should see video results related to "semrush"
+  And each video should display its duration, uploader name, and upload date
+
+TC-3: News results from last 24 hours
+  Given I am on the Bing homepage
+  When I search for "semrush"
+  And I filter results by "News"
+  And I filter results by "Past 24 hours"
+  Then I should see news articles related to "semrush"
+  And the entries should contain media outlet name, title, shortened description, image and time since article was posted
+  And time since articles was posted for all articles should be 1 day or less.
