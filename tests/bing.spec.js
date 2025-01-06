@@ -22,6 +22,7 @@ test.describe("Tests for Bing", () => {
     await expect(homePage.searchField).toHaveValue(testString);
     const newPage = await homePage.clickVideoTab(context);
     await newPage.waitForLoadState("networkidle");
+    
     await expect(homePage.searchField).toHaveValue(testString);
     const currentURL = newPage.url();
     expect(currentURL).toContain("&FORM=HDRSC4");
