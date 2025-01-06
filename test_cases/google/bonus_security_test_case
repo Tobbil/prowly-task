@@ -1,0 +1,32 @@
+Feature: Security Against SQL Injection
+
+  Scenario: Preventing SQL Injection via search query
+    Given I am on the Google homepage
+    When I search for "prowly' OR '1'='1"
+    Then the search results should not expose database errors
+    And the query should not return unexpected results
+
+---
+
+ID: TC-8
+Requirement ID: REQ-8
+Title: Preventing SQL Injection via search query
+Description: Test verifies that the search functionality is secure against 
+SQL injection attacks by preventing database errors and ensuring only valid 
+results are returned.
+
+Test data:
+- Search phrase: "prowly' OR '1'='1"
+
+Preconditions:
+- Google homepage (https://www.google.com) is available
+
+Test steps:
+1. Go to the Google homepage
+2. Enter the search phrase into the search field
+3. Click the "Search" button
+
+Expected results:
+1. The Google homepage is loaded successfully.
+2. The search phrase is entered successfully.
+3. The search results are displayed without exposing any database errors (e.g., "SQL syntax error" or similar messages). The search results are relevant and do not include unexpected or irrelevant data (e.g., unrelated entries caused by the injection attempt)

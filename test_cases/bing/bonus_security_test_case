@@ -1,0 +1,32 @@
+Feature: Security of Search Query Handling
+
+  Scenario: Preventing XSS via user input
+    Given I am on the Bing homepage
+    When I search for "<script>alert('Attention XSS!')</script>"
+    Then the search results should not execute the JavaScript code
+    And the search query should be escaped in the URL and result page
+
+---
+
+ID: TC-7
+Requirement ID: REQ-7
+Title: Preventing XSS via user input
+Description: Test verifies that the search functionality is secure against 
+XSS attacks by escaping potentially malicious input and preventing script execution.
+
+Test data:
+- Search phrase: "<script>alert('Attention XSS!')</script>"
+
+Preconditions: 
+- Bing homepage (https://www.bing.com) is available
+
+Test steps:
+1. Go to the Bing homepage
+2. Enter the search phrase into the search field
+3. Click the "Search" button
+
+Expected results:
+1. The Bing homepage is loaded successfully
+2. The search phrase is entered successfully
+3. The search results are displayed without executing the JavaScript code, the search 
+query is properly escaped in the URL and on the results page
