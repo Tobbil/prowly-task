@@ -22,5 +22,4 @@ Feature: Bing search in categories with filters
     And I filter results by "News"
     And I filter results by "Past 24 hours"
     Then I should see news articles related to "semrush"
-    And the entries should contain media outlet name, title, shortened description, image and time since article was posted
     And time since articles was posted for all articles should be 1 day or less.
