@@ -1,0 +1,74 @@
+ID: TC-1
+Requirement ID: REQ-1
+Title: Switching filters without re-entering the search term
+Description: Test checks if search phrase is automatically re-entered when switching filters 
+and results related to the search phrase are displayed.
+
+Test data: 
+- Search phrase - "semrush"
+
+Preconditions: 
+- Bing homepage (https://www.bing.com) is available
+
+Test steps:
+1. Go to Bing homepage
+2. Enter search phrase into the search field
+3. Filter results by "Everything" by selecting the "EVERYTHING" option from the category bar
+4. Filter results by "Videos" by selecting the "VIDEOS" option from the category bar
+
+Expected results:
+1. Page is loaded successfully
+2. Search phrase entered succesfully
+3. Filter applied successfully
+4. Filter applied successfully, videos related to the search phrase are displayed, 
+search field contains the search phrase
+
+---
+
+ID: TC-2
+Requirement ID: REQ-2
+Title: "Video" results show metadata
+Description: Test checks if "Videos" results contain metadata (duration, uploader name, upload date)
+
+Test data: 
+- Search phrase - "semrush"
+
+Preconditions: 
+- Bing homepage (https://www.bing.com) is available
+
+Test steps:
+1. Go to Bing homepage
+2. Enter the search phrase into the search field
+3. Filter results by "Videos" by selecting the "VIDEOS" option from the category bar
+
+Expected results:
+1. Page is loaded successfully
+2. Search phrase entered succesfully
+3. Filter applied successfully, all videos are related to the search phrase and contain 
+duration, uploader name and upload date
+
+---
+
+ID: TC-3
+Requirement ID: REQ-3
+Title: "News" results from last 24 hours
+Description: Test checks if filtering by last 24 hours in "News" displays only articles from last 24 hours.
+
+Test data: 
+- Search phrase - "semrush"
+
+Preconditions: 
+- Bing homepage (https://www.bing.com) is available
+
+Test steps:
+1. Go to Bing homepage
+2. Enter the search phrase into the search field
+3. Filter results by "News" by selecting the "NEWS" option from the category bar
+4. Filter results by last 24 hours by selecting "Past 24 hours" from the "Date" dropdown menu
+
+Expected results:
+1. Page is loaded successfully
+2. Search phrase entered succesfully.
+3. Filter applied successfully, news articles related to the search phrase are displayed
+4. Filter applied successfully, only news articles related to the search phrase that have 
+   been published 24 hours ago or less are displayed

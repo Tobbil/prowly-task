@@ -1,0 +1,40 @@
+Feature: Bing search in categories with filters
+
+  Scenario: Switching filters without re-entering the search term
+    Given I am on the Bing homepage
+    When I search for "<search_phrase>"
+    And I filter results by "Everything"
+    Then I should see search results related to "<search_phrase>"
+    When I switch to the "Videos" category
+    Then I should see video results related to "<search_phrase>" without needing to re-enter "<search_phrase>"
+    And the search field should still contain "<search_phrase>"
+
+    Examples:
+    | search_phrase |
+    -----------------
+    | semrush       |
+
+  Scenario: Video results show metadata
+    Given I am on the Bing homepage
+    When I search for "<search_phrase>"
+    And I filter results by "Videos"
+    Then I should see video results related to "<search_phrase>"
+    And each video should display its duration, uploader name, and upload date
+
+    Examples:
+    | search_phrase |
+    -----------------
+    | semrush       |
+
+  Scenario: News results from last 24 hours
+    Given I am on the Bing homepage
+    When I search for "<search_phrase>"
+    And I filter results by "News"
+    And I filter results by "Past 24 hours"
+    Then I should see news articles related to "<search_phrase>"
+    And all articles should be posted within the last 24 hours
+
+    Examples:
+    | search_phrase |
+    -----------------
+    | semrush       |
