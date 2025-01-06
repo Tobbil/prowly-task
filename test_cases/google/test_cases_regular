@@ -1,0 +1,73 @@
+ID: TC-4
+Requirement ID: REQ-4
+Title: Search for a search phrase with a date filter
+Description: Test checks if search results for a search phrase include only results published on a specified date when a date filter is applied.
+
+Test Data:
+- Search phrase: prowly
+- Date: 01/01/2024
+
+Preconditions:
+- Google homepage (https://www.google.com) is available
+
+Test Steps:
+1. Navigate to the Google homepage
+2. Enter the search phrase into the search field
+3. Apply the date filter for 01/01/2024 via the "Tools" menu
+
+Expected Results:
+1. The Google homepage is loaded successfully
+2. The search phrase is entered successfully
+3. The date filter is applied successfully - all displayed results are related to the 
+search phrase and are published on 01/01/2024
+
+---
+
+ID: TC-5
+Requirement ID: REQ-5
+Title: Search for a search phrase in "Videos" with a duration filter
+Description: Test checks if video results include only videos within the specified duration range when a duration filter is applied.
+
+Test Data:
+- Search phrase: prowly
+- Video duration filter: Short (0-4 min)
+
+Preconditions:
+- Google homepage (https://www.google.com) is available
+
+Test steps:
+1. Navigate to the Google homepage
+2. Enter the search phrase into the search field
+3. Filter results by "Videos" by selecting the "VIDEOS" option from the category bar
+4. Filter results by the duration range using the "Tools" menu
+
+Expected results:
+1. The Google homepage is loaded successfully
+2. The search phrase prowly is entered successfully
+3. The "Videos" category filter is applied successfully
+4. The video duration filter is applied successfully - all displayed video results
+are related to the search phrase and have durations within the range of the filter
+
+---
+
+ID: TC-6
+Requirement ID: REQ-6
+Title: Search for a search phrase with a filter for results from the past week
+Description: Test checks if search results include only results published within the last 7 days when the "Past week" filter is applied.
+
+Test Data:
+- Search phrase: prowly
+
+Preconditions:
+- Google homepage (https://www.google.com) is available
+
+Test steps:
+1. Navigate to the Google homepage
+2. Enter the search phrase into the search field
+3. Apply the "Past week" filter using the "Tools" menu
+
+Expected results:
+1. The Google homepage is loaded successfully
+2. The search phrase is entered successfully
+3. The "Past week" filter is applied successfully - all displayed results are related to the search phrase
+and include a publication date, and the dates are within the last 7 days

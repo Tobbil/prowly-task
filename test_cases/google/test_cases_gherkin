@@ -1,0 +1,38 @@
+Feature: Google search in categories with filters
+
+  Scenario: Search for <search_phrase> with a date filter
+    Given I am on the Google homepage
+    When I search for <search_phrase>
+    And I apply a date filter for <date>
+    Then I should see search results containing <search_phrase>
+    And all of the results should be published on <date>
+
+    Examples:
+    | search_phrase | date       |
+    ------------------------------
+    | prowly        | 01/01/2024 |
+
+  Scenario: Search for <search_phrase> in "Videos" with <video_duration_filter> filter 
+    Given I am on the Google homepage
+    When I search for <search_phrase>
+    And I filter results by "Videos"
+    And I filter results by <video_duration_filter>
+    Then I should see videos related to <search_phrase>
+    And duration of each video should fit within the range of <video_duration_filter>
+  
+    Examples:
+    | search_phrase | video_duration_filter |
+    ----------------------------------------- 
+    | prowly        | Short (0-4 min)       |
+
+  Scenario: Search for <search_phrase> with a filter for results from the past week
+    Given I am on the Google homepage
+    When I search for <search_phrase>
+    And I filter results by "Past week"
+    Then I should see results related to <search_phrase>
+    And each result should contain a publication date and be published within the last 7 days
+
+    Examples:
+    | search_phrase |
+    -----------------
+    | prowly        |
