@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import Home from "./page-objects/bing/Home";
 
-test.describe("Tests for Bing", () => {
+test.describe("Tests for Bing search in categories with filters", () => {
   const url = "https://www.bing.com";
   const testString = "semrush";
 
