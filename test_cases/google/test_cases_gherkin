@@ -1,6 +1,6 @@
-Feature: Google search in categories with filters
+Feature: Google search with date filter
 
-  Scenario: Search for <search_phrase> with a date filter
+  Scenario: Search for <search_phrase> with a filter for specified date
     Given I am on the Google homepage
     When I search for <search_phrase>
     And I apply a date filter for <date>
@@ -12,18 +12,18 @@ Feature: Google search in categories with filters
     ------------------------------
     | prowly        | 01/01/2024 |
 
-  Scenario: Search for <search_phrase> in "Videos" with <video_duration_filter> filter 
+  Scenario: Search for <search_phrase> while selecting a past date range with no publications
     Given I am on the Google homepage
     When I search for <search_phrase>
-    And I filter results by "Videos"
-    And I filter results by <video_duration_filter>
-    Then I should see videos related to <search_phrase>
-    And duration of each video should fit within the range of <video_duration_filter>
+    And I open the "Tools" menu
+    And I select "Custom range..." under the date filter
+    And I enter the date range <date_from> to <date_to>
+    Then I should see a "No results found for your search" message
   
     Examples:
-    | search_phrase | video_duration_filter |
-    ----------------------------------------- 
-    | prowly        | Short (0-4 min)       |
+    | search_phrase | date_from  | date_to    |
+    -------------------------------------------
+    | prowly        | 01/01/1900 | 01/01/1901 |
 
   Scenario: Search for <search_phrase> with a filter for results from the past week
     Given I am on the Google homepage

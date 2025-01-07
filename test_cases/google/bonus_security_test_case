@@ -4,7 +4,7 @@ Feature: Security Against SQL Injection
     Given I am on the Google homepage
     When I search for "prowly' OR '1'='1"
     Then the search results should not expose database errors
-    And the query should not return unexpected results
+    And the query should not return unexpected results (eg. all rows from the database)
 
 ---
 
@@ -27,6 +27,6 @@ Test steps:
 3. Click the "Search" button
 
 Expected results:
-1. The Google homepage is loaded successfully.
-2. The search phrase is entered successfully.
-3. The search results are displayed without exposing any database errors (e.g., "SQL syntax error" or similar messages). The search results are relevant and do not include unexpected or irrelevant data (e.g., unrelated entries caused by the injection attempt)
+1. The Google homepage is loaded successfully
+2. The search phrase is entered successfully
+3. The search results are displayed without exposing any database errors (e.g., "SQL syntax error" or similar messages). The search results are relevant to the search phrase and do not include unexpected or irrelevant data (eg. unrelated entries caused by the injection attempt)

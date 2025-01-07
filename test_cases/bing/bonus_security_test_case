@@ -4,7 +4,7 @@ Feature: Security of Search Query Handling
     Given I am on the Bing homepage
     When I search for "<script>alert('Attention XSS!')</script>"
     Then the search results should not execute the JavaScript code
-    And the search query should be escaped in the URL and result page
+    And the search query in the URL should be properly URL-encoded
 
 ---
 
@@ -28,5 +28,4 @@ Test steps:
 Expected results:
 1. The Bing homepage is loaded successfully
 2. The search phrase is entered successfully
-3. The search results are displayed without executing the JavaScript code, the search 
-query is properly escaped in the URL and on the results page
+3. The search results are displayed without executing the JavaScript code - the alert is not triggered. The search query in the URL is properly URL-encoded.

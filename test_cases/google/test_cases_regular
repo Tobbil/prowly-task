@@ -1,6 +1,6 @@
 ID: TC-4
 Requirement ID: REQ-4
-Title: Search for a search phrase with a date filter
+Title: Search for a search phrase with a filter for specified date
 Description: Test checks if search results for a search phrase include only results published on a specified date when a date filter is applied.
 
 Test Data:
@@ -13,24 +13,25 @@ Preconditions:
 Test Steps:
 1. Navigate to the Google homepage
 2. Enter the search phrase into the search field
-3. Apply the date filter for 01/01/2024 via the "Tools" menu
+3. Apply the date filter for specified date via the "Tools" menu
 
 Expected Results:
 1. The Google homepage is loaded successfully
 2. The search phrase is entered successfully
 3. The date filter is applied successfully - all displayed results are related to the 
-search phrase and are published on 01/01/2024
+search phrase and are published on specified date
 
 ---
 
 ID: TC-5
 Requirement ID: REQ-5
-Title: Search for a search phrase in "Videos" with a duration filter
-Description: Test checks if video results include only videos within the specified duration range when a duration filter is applied.
+Title: Search for a search phrase while selecting a past date range with no publications
+Description: Verifies that Google displays a "No results found" message when the selected past date range contains no matching results.
 
 Test Data:
 - Search phrase: prowly
-- Video duration filter: Short (0-4 min)
+- Date "From": 01/01/1900
+- Date "To": 01/01/1901
 
 Preconditions:
 - Google homepage (https://www.google.com) is available
@@ -38,15 +39,14 @@ Preconditions:
 Test steps:
 1. Navigate to the Google homepage
 2. Enter the search phrase into the search field
-3. Filter results by "Videos" by selecting the "VIDEOS" option from the category bar
-4. Filter results by the duration range using the "Tools" menu
+3. Open the "Tools" menu and select "Custom range..." under the date filter
+4. Enter the past date range: Date "From" - Date "To"
 
 Expected results:
 1. The Google homepage is loaded successfully
-2. The search phrase prowly is entered successfully
-3. The "Videos" category filter is applied successfully
-4. The video duration filter is applied successfully - all displayed video results
-are related to the search phrase and have durations within the range of the filter
+2. The search phrase is entered successfully
+3. The custom date range is applied successfully
+4. Page displays a "No results found for your search" message
 
 ---
 
@@ -70,4 +70,4 @@ Expected results:
 1. The Google homepage is loaded successfully
 2. The search phrase is entered successfully
 3. The "Past week" filter is applied successfully - all displayed results are related to the search phrase
-and include a publication date, and the dates are within the last 7 days
+and include a publication date, and all the dates are within the last 7 days
